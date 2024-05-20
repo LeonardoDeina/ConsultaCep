@@ -1,0 +1,65 @@
+body{
+    background: url("img/concrete-1646788_1920.jpg") repeat;
+    height: 600px;
+}
+header{
+    background-color: black;
+    height:100px;
+    justify-content:center;
+    display:flex;
+    align-items:center;
+    color: white;
+    border: solid black;
+}
+#corpo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#abot{
+    margin-top: 200px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+}
+#bot1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    text-align: center;
+    background-color: #708090;
+    width: 200px;
+    height: 100px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+#bot1 h2 {
+    text-shadow: 1px 1px 2px black, 0 0 1em gray, 0 0 0.2em gray;
+}
+#bot1:hover{
+    cursor: pointer;
+    background-color: white
+}
+#bot2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 20px;
+    height:100px;
+    text-align: center;
+    background-color: #708090;
+    width:200px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+#bot2 h2 {
+    text-shadow: 1px 1px 2px black, 0 0 1em gray, 0 0 0.2em gray;
+}
+#bot2:hover{
+    cursor: pointer;
+    background-color: white
+}
