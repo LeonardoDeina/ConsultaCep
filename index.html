@@ -14,38 +14,60 @@
     <div id="corpo">
         <div id="abot">
             <div id="bot1" onclick="abreForm()"><h2>Novo Endereço</h2></div>
-            <div id="bot2" onclick=""><h2>Endereços cadastrados</h2></div>
+            <div id="bot2" onclick="abreLista()"><h2>Endereços cadastrados</h2></div>
             <dialog id="Form">
-                <div>
-                    CEP: <input onblur="consultaCep()" type="text" name="cep" id="cep" placeholder="digite seu cep">
-                 </div>
-                 <div>
-                     <button onclick="consultaCep()">Consultar</button>
-                 </div>
-                 <div>
-                    Logradouro: <input onblur="consultaCep()" type="text" name="logradouro" id="logradouro" placeholder="digite seu logradouro">
-                 </div>
-                 <div>
-                    Numero: <input onblur="consultaCep()" type="text" name="nmr" id="nmr" placeholder="digite seu numero">
-                 </div>
-                 <div>
-                    Complemento: <input onblur="consultaCep()" type="text" name="comp" id="comp" placeholder="digite seu complemento">
-                 </div>
-                 <div>
-                    Bairro: <input onblur="consultaCep()" type="text" name="bairro" id="bairro" placeholder="digite seu bairro">
-                 </div>
-                 <div>
-                    Cidade: <input onblur="consultaCep()" type="text" name="cidade" id="cidade" placeholder="digite sua cidade">
-                 </div>
-                 <div>
-                    UF: <input onblur="consultaCep()" type="text" name="UF" id="UF" placeholder="digite sua UF">
-                 </div>
-                 <div>
-                     <textarea name="retorno" id="retorno" cols="30" rows="10"></textarea>
-                 </div>
+                <form id="Form_Cad">
+                    <div>
+                        <button type="button" id="fechar_cad_dialog" style="text-align: center;" onclick="fechaForm()">x</button>
+                    </div>
+                    <div>
+                        CEP: <input onblur="consultaCep()" type="text" name="cep" id="cep" placeholder="digite seu cep">
+                     </div>
+                     <div>
+                         <button type="button" onclick="consultaCep()">Consultar</button>
+                     </div>
+                     <div>
+                        Logradouro: <input onblur="consultaCep()" type="text" name="logradouro" id="logradouro" placeholder="digite seu logradouro">
+                     </div>
+                     <div>
+                        Numero: <input onblur="consultaCep()" type="text" name="nmr" id="nmr" placeholder="digite seu numero">
+                     </div>
+                     <div>
+                        Complemento: <input onblur="consultaCep()" type="text" name="comp" id="comp" placeholder="digite seu complemento">
+                     </div>
+                     <div>
+                        Bairro: <input onblur="consultaCep()" type="text" name="bairro" id="bairro" placeholder="digite seu bairro">
+                     </div>
+                     <div>
+                        Cidade: <input onblur="consultaCep()" type="text" name="cidade" id="cidade" placeholder="digite sua cidade">
+                     </div>
+                     <div>
+                        UF: <input onblur="consultaCep()" type="text" name="UF" id="UF" placeholder="digite sua UF">
+                     </div>
+                     <div style="text-align: center;">
+                        <button type="button" onclick="cadastrarEndereco()">Cadastrar</button>
+                    </div>
+                </form>
             </dialog>
             <dialog id="List">
-                Lista - Em elaboração
+                <div>
+                    <button type="button" id="fechar_cad_dialog" style="text-align: center;" onclick="fechaForm()">x</button>
+                </div>
+                <table id="table">
+                    <thead>
+                        <tr>
+                            <th>CEP</th>
+                            <th>Logradouro</th>
+                            <th>Numero</th>
+                            <th>Complemento</th>
+                            <th>Bairro</th>
+                            <th>Cidade</th>
+                            <th>UF</th>
+                        </tr>
+                    </thead>
+                    <tbody>    
+                    </tbody>    
+                </table>
             </dialog>
         </div>
     </div>

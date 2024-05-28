@@ -63,3 +63,42 @@ header{
     cursor: pointer;
     background-color: white
 }
+#Form{
+    width: 70%;
+    background-image: url("map-of-brazil-3716154.svg");
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#Form div{
+    font-size: 20px;
+}
+
+#Form button{
+    width: 100%;
+    display: inline-block;
+    margin: 0 auto
+}
+
+#Form input{
+    width: 100%;
+}
+
+#Form #fechar_cad_dialog{
+    width: 3%;
+    margin-left:97%;
+
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}

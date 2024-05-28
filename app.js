@@ -1,4 +1,4 @@
-function jsPadrao() {
+/*function jsPadrao() {
     let xhr = new XMLHttpRequest();
     // define the request
     xhr.open('GET', 'https://viacep.com.br/ws/01001000/json/');
@@ -21,11 +21,58 @@ function jsPadrao() {
 /**
  * para testar essa função usar descomentar essa linha no html
  *     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>    
- */
+ 
 function jqueryGet() {
     $.get('https://viacep.com.br/ws/01001000/json/', (data) => {
         console.log(data)
     })
+}
+*/
+
+let enderecos = []
+
+function cadastrarEndereco() {
+    let id = 0;
+
+    if (!localStorage.getItem('enderecos'))
+        id = 0;
+    else
+        id = JSON.parse(localStorage.getItem('enderecos')).length;
+
+        const infCEP = document.getElementById('cep').value;
+        const infLogradouro = document.getElementById('logradouro').value;
+        const infNmr = document.getElementById('nmr').value;
+        const infComp = document.getElementById('comp').value;
+        const infBairro = document.getElementById('bairro').value;
+        const infCidade = document.getElementById('cidade').value;
+        const infUF = document.getElementById('UF').value;
+
+        let endereco = {
+            Id: id,
+            Cep: infCEP,
+            Logradouro: infLogradouro,
+            Numero: infNmr,
+            Complemento: infComp,
+            Bairro: infBairro,
+            Cidade: infCidade,
+            UF: infUF,
+        }
+
+        try {
+
+            let enderecosLocalStorage = JSON.parse(localStorage.getItem('enderecos')) || [];
+    
+            enderecosLocalStorage.push(endereco);
+    
+            localStorage.setItem('enderecos', JSON.stringify(enderecosLocalStorage));
+    
+            alert('Endereço cadastrado com sucesso.');
+    
+        } catch {
+            alert("Algo deu errado ao adicionar o endereço.");
+        }
+
+        limpaCampos()
 }
 
 function consultaCep() {
@@ -39,7 +86,6 @@ function consultaCep() {
    .then(resposta => resposta.json())
 //    .then(json => console.log(json))
    .then(json => {
-    retorno.innerText = JSON.stringify(json)
     logradourof.value = json.logradouro
     bairrof.value = json.bairro 
     cidadef.value = json.localidade
@@ -52,3 +98,42 @@ function abreForm(){
     form = document.getElementById("Form");
     form.setAttribute('open','open')
 }
+
+function abreLista(){
+    lista = document.getElementById("List");
+    lista.setAttribute('open', 'open')
+}
+
+function fechaForm(){
+    form = document.getElementById("Form");
+    form.close()
+}
+
+function limpaCampos() {
+    document.getElementById('Form_Cad').reset();
+}
+
+function recuperaLocalStorage() {
+    let dados = JSON.parse(localStorage.getItem("enderecos"));
+    return dados;
+}
+
+function montaTabela() {
+    let dados = recuperaLocalStorage();
+    let tabela = document.querySelector('#table tbody');
+    let contador = 0
+    for (contador = 0; contador < dados.length; contador++) {
+        let item = tabela.insertRow();
+        item.id = "endereco" + dados[contador].id;
+
+        item.innerHTML =
+            "<td id='" + "campoCEP" + contador + "'>" + dados[contador].Cep + "</td>"
+            + "<td id='" + "campoLogradouro" + contador + "'>" + dados[contador].Logradouro + "</td>"
+            + "<td id='" + "campoNmr" + contador + "'>" + dados[contador].Numero + "</td>"
+            + "<td id='" + "campoComplemento" + contador + "'>" + dados[contador].Complemento + "</td>"
+            + "<td id='" + "campoBairro" + contador + "'>" + dados[contador].Bairro + "</td>"
+            + "<td id='" + "campoCidade" + contador + "'>" + dados[contador].Cidade + "</td>"
+            + "<td id='" + "campoUF" + contador + "'>" + dados[contador].UF + "</td>"
+    }  
+}      
+window.onload = function () { montaTabela(); }
