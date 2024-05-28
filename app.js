@@ -67,6 +67,8 @@ function cadastrarEndereco() {
             localStorage.setItem('enderecos', JSON.stringify(enderecosLocalStorage));
     
             alert('Endereço cadastrado com sucesso.');
+
+            montaTabela();
     
         } catch {
             alert("Algo deu errado ao adicionar o endereço.");
@@ -107,6 +109,10 @@ function abreLista(){
 function fechaForm(){
     form = document.getElementById("Form");
     form.close()
+}
+function fechaLista(){
+    lista = document.getElementById("List");
+    lista.close()
 }
 
 function limpaCampos() {

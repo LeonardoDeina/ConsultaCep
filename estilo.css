@@ -91,6 +91,11 @@ header{
 
 }
 
+#List #fechar_cad_dialog{
+    width: 3%;
+    margin-left:97%;
+}
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
